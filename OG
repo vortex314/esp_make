@@ -1,0 +1,984 @@
+ûoN¾ä|ûŒòNÎ„clrdƒ{$„¾ã„bl„b#ìòNÎ€2Nnâä“Ü$„ldŒ„l{ì|rl€NüŒŸâŒBc„ŸâŒ"lŒBrrl{l0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,146| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,167| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,167| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,178| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,189| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,210| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,221| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,243| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,364| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,388| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+dËtªÍe’Ñcj•m"…tXHs$ƒr$ŒãŒcd„c"äònî€noãì’œlŒllŒ„l{ì|rl€nü„ßâ„"#Œ¾ã„bd„csrl{$0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,146| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,167| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,167| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,178| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,189| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,210| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,221| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,243| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,364| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,388| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+{$ƒr$Œ¾ãŒbd„b#ìòNÎ€2Nnâä“Ü$„l$ŒŒl{ì|rl€nü„ßâ„"c„¾â„bl„"rs$rl0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rl‚{d„ßâ„bl„"cìòNÎ€Nâì’Ü$„ldŒ„l{ì|rl€nü„ŸâŒBc„ŸâŒBlŒBrrdrl0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+{$ƒr$ŒãŒcd„bBìònî€Nnâä“Ü$„llŒ„lsä|{l€NüŒãŒc"ŒãŒcd„br{lrd0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+{$ƒr$Œ¾ãŒcl„b#ìûoÎ€Nâì’œlŒ$l„Œ$rä|s$€oü„¾ã„b#„¾â„"l„Brs$rl0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+{l‚rlŒÂŒ#$Œcbäóoï€noãì’œlŒllŒ„lsä|rl€NüŒŸÂŒ#bŒŸÂŒ#$Œc{rl{l0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+s$ƒ{$Œ¾ãŒcd„b"ìònî€noãäÛœlŒd$ŒŒlrì|rd€nü„¾â„b#„¾â„bl„Brs$rl0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rl‚rlŒãŒcd„bBìòNÎ€2Nnâì’ÜdŒllŒ„$rä|{$€oüŒ¾ã„b#„ŸâŒBlŒ#{rl{l0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rl‚rlŒŸÂŒ#$Œcbäóoï€noãäÛœlŒd$ŒŒl{ì|rl€NüŒŸÂŒ#bŒãŒcd„br{lrd0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+{lƒr$Œ¾ã„bl„"cäûoï€ooãäÛœl„ldŒ„$rä|{$€oüŒ¾â„bc„ŸâŒ#$Œc{rl{l0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rl‚rlŒãŒc$ŒbBìònî€Nnâä$„ldŒ„lsä|{l€oüŒ¾ã„bB„¾â„bl„"rs$rl0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rlƒrlŒãŒcl„"cìûoï€NÂì’œlŒ$l„Œlrì|rl€NüŒŸÂŒ#bŒãŒcd„br{lrd0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rl‚rlŒŸâŒBlŒ#bäóoï€ooãì’œlŒ$l„Œ$rä|s$€oüŒ¾ã„bB„¾â„bl„br{$rl0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rd‚{d„ßâ„B$Œcbäònî€Nnâì’ÜlŒ$l„Œl{ì|rl€NüŒãŒc"Œ¾ã„bl„"rs$rl0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rl‚sl„ßâ„"lŒBcìûoï€Nâì’œlŒ$l„Œ$rä|{$€oüŒ¾ã„b"ŒãŒcd„bsrls$0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+{$ƒr$Œ¾ã„bl„"cäûoï€ooãäÛœl„ldŒ„lsä|{$€oüŒ¾â„bc„ŸâŒBlŒ#{rdrl0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+s$ƒr$Œ¾ãŒcd„bBìònî€Nnâäl„d$ŒŒl{ì|rl€nü„ßâ„"#Œ¾â„bl„br{lr$0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rd‚sl„ŸÂŒc$„bBìòNÎ€NÂì²œl„ldŒ„$rä|s$€oü„ßâ„"bŒãŒcl„br{$rl0–‚0'‚:‚,‚0u®–½uX.—i |ª…r×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|ªÍe®©…r—i |ª…r×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,231| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+d~rl{lcN¾ì|òœâ’ƒoŸŒòNnäûonœäãclòNnä|ûŒûNÎ„b$rl‚rl„ŸâŒBlŒ#bäóoï€ooãì’œlŒ$l„Œdrì|rd€nü„ßâ„"c„ŸâŒB$Œc{rl{$0–‚0'‚:‚,‚0d®Ë•r©…r—i uX.×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|"ÉiWÉ/]Éti uX.×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,146| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,167| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,167| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,178| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,189| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,210| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,221| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,243| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,364| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,388| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+dËtªÍe’Ñcj•m"…tXHrl‚{d„¾â„bl„bBìòNÎ€2Nnâä“Ü$„ldŒ„lsä|rl€oüŒãŒc"ŒãŒcl„br{lrd0–‚0'‚:‚,‚0d®Ë•r©…r—i uX.×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|"ÉiWÉ/]Éti uX.×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,146| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,167| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,167| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,178| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,189| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,210| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,221| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,243| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,364| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,388| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rl‚rlŒãŒcdŒcBìòNî€2Nnâì’ÜdŒll„Œ$rä|s$€oü„¾â„"c„ŸâŒ#$Œcsrls$0–‚0'‚:‚,‚0d®Ë•r©…r—i uX.×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|"ÉiWÉ/]Éti uX.×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rl‚rlŒŸÂŒ#$Œcbäóoï€noãìÛœlŒl$ŒŒl{ì|rl€NüŒŸÂŒ#bŒãŒc$Œcsrls$0–‚0'‚:‚,‚0d®Ë•r©…r—i uX.×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|"ÉiWÉ/]Éti uX.×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rl‚rlŒãŒcd„b#ìòNï€NÂì’œlŒ$l„Œlrì|rl€nüŒŸÂŒ#bŒãŒcl„br{$rl0–‚0'‚:‚,‚0d®Ë•r©…r—i uX.×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|"ÉiWÉ/]Éti uX.×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+{lƒrlŒãŒcd„bBìònî€NnãäÛœlŒd$„Œlrì|rd€nü„ßâ„bB„¾â„bl„"r{$rl0–‚0'‚:‚,‚0d®Ë•r©…r—i uX.×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|"ÉiWÉ/]Éti uX.×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rl‚sl„ßâ„"lŒBcäûoï€oNÂì’œlŒ$l„Œ$rä|{$€oüŒãŒc#Œ¾ã„bl„br{$rd0–‚0'‚:‚,‚0d®Ë•r©…r—i uX.×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|"ÉiWÉ/]Éti uX.×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+rl‚sl„ŸâŒBlŒ#bäònî€noãä$„ldŒ„$rä|{$€oü„¾â„bcŒãŒcd„br{$rl0–‚0'‚:‚,‚0d®Ë•r©…r—i uX.×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|"ÉiWÉ/]Éti uX.×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |  SSID : Merckx, PSWD : LievenMarletteEwoutRonald
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| WIFI_INIT
+0d:00:00:00,387| wifi/Wifi.cpp  | dispatch| op mode 2
+0d:00:00:00,398| wifi/Wifi.cpp  | dispatch| op mode default 2
+bcn 0
+del if1
+usl
+mode : sta(18:fe:34:cf:47:f4)
+add if0
+!*ÑsR…n8’0L&IÍt…u®–¢,½oj½dY'ib6JH¡Ñ ®Ö•tC!ë…d‚xŠ0‚0b «¹ L“¢,’½o[Š6j
+tX‹4C¡¡k®W‚x–5
+ë…d‚x&–•8‚0	b•n²7&	’½o[¢ CátX‹1¦HckÍu[‚xVj
+¬Õm‚xVj
+C!	o‹vLIr1j ®k¡a.V‰u.×Ëg[¥li½mC!+Íhš¥zY' &M¬‹5
++Íhj½dY' Tê5
++ÍhšÁeY– MJ5
+CáBëÑiër«0©
+{l‚rlŒŸÂŒ#$Œcbäóoï€noãäÛœl„l$Œ„l{ì|rl€NüŒãŒcbŒãŒcd„br{lrd0–‚0'‚:‚,‚0d®Ë•r©…r—i uX.×5½nVëñ ]Étå½ bXÉaW1L“‚0j½dYÂNLH!"é0Ò0Ò0b0‚|"ÉiWÉ/]Éti uX.×ı0d:00:00:00,100| user/user_main.c| user_init| *****************************************
+0d:00:00:00,110| user/user_main.c| user_init| Starting version : May  1 2016 13:11:38
+0d:00:00:00,121| user/user_main.c| user_init| *****************************************
+mode : softAP(1a:fe:34:cf:47:f4)
+add if1
+dhcp server start:(ip:192.168.4.1,mask:255.255.255.0,gw:192.168.4.1)
+bcn 100
+0d:00:00:00,145| cpp/Pump.cpp   | MsgInit |  Bytes 00 01 02 80 FF
+0d:00:00:00,156| cpp/Pump.cpp   | MsgInit |  Str Hello World
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,166| cpp/Pump.cpp   | MsgInit | AAECgP8=:00 01 02 80 FF
+0d:00:00:00,177| cpp/Pump.cpp   | MsgInit | {"key":1234,"cmd":{"key2":11111}}
+0d:00:00:00,188| cpp/Pump.cpp   | MsgInit | cmd : {"key2":11111}}
+0d:00:00:00,199| cpp/Pump.cpp   | MsgInit | key2 : 11111}}
+0d:00:00:00,209| cpp/Pump.cpp   | MsgInit | key : 1234,"cmd":{"key2":11111}}
+0d:00:00:00,220| cpp/Flash.cpp  | init    | page address  : 0x3F8000 
+0d:00:00:00,232| cpp/Flash.cpp  | init    | free start  : 0x3F8008
+0d:00:00:00,242| cpp/Flash.cpp  | init    | sequence  : 0
+0d:00:00:00,253| cpp/Pump.cpp   | MsgInit |  config test.eclips{"key2":11111}} : 11 
+0d:00:00:00,363| cpp/Pump.cpp   | MsgInit |

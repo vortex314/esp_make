@@ -1,0 +1,356 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 5339,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "/*\n /*\n * The MIT License (MIT)\n *\n * Copyright (c) 2015 David Ogilvy (MetalPhreak)\n *\n * Permission is hereby granted, free of charge, to any person obtaining a copy\n * of this software and associated documentation files (the \"Software\"), to deal\n * in the Software without restriction, including without limitation the rights\n * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n * copies of the Software, and to permit persons to whom the Software is\n * furnished to do so, subject to the following conditions:\n *\n * The above copyright notice and this permission notice shall be included in all\n * copies or substantial portions of the Software.\n *\n * THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n * SOFTWARE.\n */\n\n#include \"spi.h\"\n#include \"Sys.h\"\n#include \"Logger.h\"\n\n////////////////////////////////////////////////////////////////////////////////\n//\n// Function Name: spi_init\n//   Description: Wrapper to setup HSPI/SPI GPIO pins and default SPI clock\n//    Parameters: spi_no - SPI (0) or HSPI (1)\n//\n////////////////////////////////////////////////////////////////////////////////\n\nvoid spi_init(uint8 spi_no) {\n\n	if (spi_no > 1)\n		return; //Only SPI and HSPI are valid spi modules.\n\n	spi_init_gpio(spi_no, SPI_CLK_USE_DIV);\n	spi_clock(spi_no, SPI_CLK_PREDIV, SPI_CLK_CNTDIV);\n	spi_tx_byte_order(spi_no, SPI_BYTE_ORDER_HIGH_TO_LOW);\n	spi_rx_byte_order(spi_no, SPI_BYTE_ORDER_HIGH_TO_LOW);\n\n	SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_CS_SETUP|SPI_CS_HOLD);\n	CLEAR_PERI_REG_MASK(SPI_USER(spi_no), SPI_FLASH_MODE);\n\n}\n\n////////////////////////////////////////////////////////////////////////////////\n\n////////////////////////////////////////////////////////////////////////////////\n//\n// Function Name: spi_mode\n//   Description: Configures SPI mode parameters for clock edge and clock polarity.\n//    Parameters: spi_no - SPI (0) or HSPI (1)\n//				  spi_cpha - (0) Data is valid on clock leading edge\n//				             (1) Data is valid on clock trailing edge\n//				  spi_cpol - (0) Clock is low when inactive\n//				             (1) Clock is high when inactive\n//\n////////////////////////////////////////////////////////////////////////////////\n\nvoid spi_mode(uint8 spi_no, uint8 spi_cpha, uint8 spi_cpol) {\n	if (spi_cpha) {\n		CLEAR_PERI_REG_MASK(SPI_USER(spi_no), SPI_CK_OUT_EDGE);\n		CLEAR_PERI_REG_MASK(SPI_USER(spi_no), SPI_CK_I_EDGE);\n	} else {\n		SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_CK_OUT_EDGE);\n		SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_CK_I_EDGE);\n	}\n\n	/*	if (spi_cpol) {\n	 SET_PERI_REG_MASK(SPI_PIN(spi_no), SPI_IDLE_EDGE);\n	 } else {\n	 CLEAR_PERI_REG_MASK(SPI_PIN(spi_no), SPI_IDLE_EDGE);\n	 }*/\n\n	if (spi_cpol) { // CPOL\n		SET_PERI_REG_MASK(SPI_CTRL2(spi_no),\n				SPI_CK_OUT_HIGH_MODE << SPI_CK_OUT_HIGH_MODE_S);\n		CLEAR_PERI_REG_MASK(SPI_CTRL2(spi_no),\n				SPI_CK_OUT_LOW_MODE << SPI_CK_OUT_LOW_MODE_S);\n	} else {\n		SET_PERI_REG_MASK(SPI_CTRL2(spi_no),\n				SPI_CK_OUT_LOW_MODE << SPI_CK_OUT_LOW_MODE_S);\n		CLEAR_PERI_REG_MASK(SPI_CTRL2(spi_no),\n				SPI_CK_OUT_HIGH_MODE << SPI_CK_OUT_LOW_MODE_S);\n	}\n}\n\nvoid spi_clear() {\n	WRITE_PERI_REG(SPI_W0(HSPI), 0);\n\n}\n\n////////////////////////////////////////////////////////////////////////////////\n\n////////////////////////////////////////////////////////////////////////////////\n//\n// Function Name: spi_init_gpio\n//   Description: Initialises the GPIO pins for use as SPI pins.\n//    Parameters: spi_no - SPI (0) or HSPI (1)\n//				  sysclk_as_spiclk - SPI_CLK_80MHZ_NODIV (1) if using 80MHz\n//									 sysclock for SPI clock.\n//									 SPI_CLK_USE_DIV (0) if using divider to\n//									 get lower SPI clock speed.\n//\n////////////////////////////////////////////////////////////////////////////////\n\nvoid spi_init_gpio(uint8 spi_no, uint8 sysclk_as_spiclk) {\n\n//	if(spi_no > 1) return; //Not required. Valid spi_no is checked with if/elif below.\n\n	uint32 clock_div_flag = 0;\n	if (sysclk_as_spiclk) {\n		clock_div_flag = 0x0001;\n	}\n\n	if (spi_no == SPI) {\n		WRITE_PERI_REG(PERIPHS_IO_MUX, 0x005 | (clock_div_flag << 8)); //Set bit 8 if 80MHz sysclock required\n		PIN_FUNC_SELECT(PERIPHS_IO_MUX_SD_CLK_U, 1);\n		PIN_FUNC_SELECT(PERIPHS_IO_MUX_SD_CMD_U, 1);\n		PIN_FUNC_SELECT(PERIPHS_IO_MUX_SD_DATA0_U, 1);\n		PIN_FUNC_SELECT(PERIPHS_IO_MUX_SD_DATA1_U, 1);\n	} else if (spi_no == HSPI) {\n		WRITE_PERI_REG(PERIPHS_IO_MUX, 0x105 | (clock_div_flag << 9)); //Set bit 9 if 80MHz sysclock required\n		PIN_FUNC_SELECT(PERIPHS_IO_MUX_MTDI_U, 2); //GPIO12 is HSPI MISO pin (Master Data In)\n		PIN_FUNC_SELECT(PERIPHS_IO_MUX_MTCK_U, 2); //GPIO13 is HSPI MOSI pin (Master Data Out)\n		PIN_FUNC_SELECT(PERIPHS_IO_MUX_MTMS_U, 2); //GPIO14 is HSPI CLK pin (Clock)\n		PIN_FUNC_SELECT(PERIPHS_IO_MUX_MTDO_U, 2); //GPIO15 is HSPI CS pin (Chip Select / Slave Select)\n	}\n\n}\n\n////////////////////////////////////////////////////////////////////////////////\n\n////////////////////////////////////////////////////////////////////////////////\n//\n// Function Name: spi_clock\n//   Description: sets up the control registers for the SPI clock\n//    Parameters: spi_no - SPI (0) or HSPI (1)\n//				  prediv - predivider value (actual division value)\n//				  cntdiv - postdivider value (actual division value)\n//				  Set either divider to 0 to disable all division (80MHz sysclock)\n//\n////////////////////////////////////////////////////////////////////////////////\n\nvoid spi_clock(uint8 spi_no, uint16 prediv, uint8 cntdiv) {\n\n	if (spi_no > 1)\n		return;\n\n	if ((prediv == 0) | (cntdiv == 0)) {\n\n		WRITE_PERI_REG(SPI_CLOCK(spi_no), SPI_CLK_EQU_SYSCLK);\n\n	} else {\n\n		WRITE_PERI_REG(SPI_CLOCK(spi_no),\n				(((prediv-1)&SPI_CLKDIV_PRE)<<SPI_CLKDIV_PRE_S)| (((cntdiv-1)&SPI_CLKCNT_N)<<SPI_CLKCNT_N_S)| (((cntdiv>>1)&SPI_CLKCNT_H)<<SPI_CLKCNT_H_S)| ((0&SPI_CLKCNT_L)<<SPI_CLKCNT_L_S));\n	}\n\n}\n\n#include <Arduino.h>\n#include <gpio_c.h>\n\nvoid spi_set_hw_cs(bool use) {\n	if (use) {\n		PIN_FUNC_SELECT(PERIPHS_IO_MUX_MTDO_U, 2); //GPIO15 is HSPI CS pin (Chip Select / Slave Select)\n		SET_PERI_REG_MASK(SPI_USER(HSPI), SPI_CS_SETUP|SPI_CS_HOLD);\n	} else {\n		pinMode(15, OUTPUT);\n		CLEAR_PERI_REG_MASK(SPI_USER(HSPI), SPI_CS_SETUP|SPI_CS_HOLD);\n	}\n}\n// D8 == GPIO PIN 15\nvoid spi_cs_select() {\n	digitalWrite(D8, 0);\n}\n\nvoid spi_cs_deselect() {\n	digitalWrite(D8, 1);\n}\n\n////////////////////////////////////////////////////////////////////////////////\n\n////////////////////////////////////////////////////////////////////////////////\n//\n// Function Name: spi_tx_byte_order\n//   Description: Setup the byte order for shifting data out of buffer\n//    Parameters: spi_no - SPI (0) or HSPI (1)\n//				  byte_order - SPI_BYTE_ORDER_HIGH_TO_LOW (1)\n//							   Data is sent out starting with Bit31 and down to Bit0\n//\n//							   SPI_BYTE_ORDER_LOW_TO_HIGH (0)\n//							   Data is sent out starting with the lowest BYTE, from\n//							   MSB to LSB, followed by the second lowest BYTE, from\n//							   MSB to LSB, followed by the second highest BYTE, from\n//							   MSB to LSB, followed by the highest BYTE, from MSB to LSB\n//							   0xABCDEFGH would be sent as 0xGHEFCDAB\n//\n//\n////////////////////////////////////////////////////////////////////////////////\n\nvoid spi_tx_byte_order(uint8 spi_no, uint8 byte_order) {\n\n	if (spi_no > 1)\n		return;\n\n	if (byte_order) {\n		SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_WR_BYTE_ORDER);\n	} else {\n		CLEAR_PERI_REG_MASK(SPI_USER(spi_no), SPI_WR_BYTE_ORDER);\n	}\n}\n////////////////////////////////////////////////////////////////////////////////\n\n////////////////////////////////////////////////////////////////////////////////\n//\n// Function Name: spi_rx_byte_order\n//   Description: Setup the byte order for shifting data into buffer\n//    Parameters: spi_no - SPI (0) or HSPI (1)\n//				  byte_order - SPI_BYTE_ORDER_HIGH_TO_LOW (1)\n//							   Data is read in starting with Bit31 and down to Bit0\n//\n//							   SPI_BYTE_ORDER_LOW_TO_HIGH (0)\n//							   Data is read in starting with the lowest BYTE, from\n//							   MSB to LSB, followed by the second lowest BYTE, from\n//							   MSB to LSB, followed by the second highest BYTE, from\n//							   MSB to LSB, followed by the highest BYTE, from MSB to LSB\n//							   0xABCDEFGH would be read as 0xGHEFCDAB\n//\n//\n////////////////////////////////////////////////////////////////////////////////\n\nvoid spi_rx_byte_order(uint8 spi_no, uint8 byte_order) {\n\n	if (spi_no > 1)\n		return;\n\n	if (byte_order) {\n		SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_RD_BYTE_ORDER);\n	} else {\n		CLEAR_PERI_REG_MASK(SPI_USER(spi_no), SPI_RD_BYTE_ORDER);\n	}\n}\n////////////////////////////////////////////////////////////////////////////////\n\n////////////////////////////////////////////////////////////////////////////////\n//\n// Function Name: spi_transaction\n//   Description: SPI transaction function\n//    Parameters: spi_no - SPI (0) or HSPI (1)\n//				  cmd_bits - actual number of bits to transmit\n//				  cmd_data - command data\n//				  addr_bits - actual number of bits to transmit\n//				  addr_data - address data\n//				  dout_bits - actual number of bits to transmit\n//				  dout_data - output data\n//				  din_bits - actual number of bits to receive\n//\n//		 Returns: read data - uint32 containing read in data only if RX was set\n//				  0 - something went wrong (or actual read data was 0)\n//				  1 - data sent ok (or actual read data is 1)\n//				  Note: all data is assumed to be stored in the lower bits of\n//				  the data variables (for anything <32 bits).\n//\n////////////////////////////////////////////////////////////////////////////////\n\nuint32 spi_transaction(uint8 spi_no, uint8 cmd_bits, uint16 cmd_data,\n		uint32 addr_bits, uint32 addr_data, uint32 dout_bits, uint32 dout_data,\n		uint32 din_bits, uint32 dummy_bits) {\n\n	if (spi_no > 1)\n		return 0;  //Check for a valid SPI\n\n	//code for custom Chip Select as GPIO PIN here\n\n	while (spi_busy(spi_no))\n		; //wait for SPI to be ready\n\n//########## Enable SPI Functions ##########//\n	//disable MOSI, MISO, ADDR, COMMAND, DUMMY in case previously set.\n	CLEAR_PERI_REG_MASK(SPI_USER(spi_no),\n			SPI_USR_MOSI|SPI_USR_MISO|SPI_USR_COMMAND|SPI_USR_ADDR|SPI_USR_DUMMY);\n//	SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_DOUTDIN); // LMR set full duplex\n\n	//enable functions based on number of bits. 0 bits = disabled.\n	//This is rather inefficient but allows for a very generic function.\n	//CMD ADDR and MOSI are set below to save on an extra if statement.\n//	if(cmd_bits) {SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_USR_COMMAND);}\n//	if(addr_bits) {SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_USR_ADDR);}\n	if (din_bits) {\n		SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_USR_MISO);\n	}\n	if (dummy_bits) {\n		SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_USR_DUMMY);\n	}\n//########## END SECTION ##########//\n\n//########## Setup Bitlengths ##########//\n	WRITE_PERI_REG(SPI_USER1(spi_no),\n			((addr_bits-1)&SPI_USR_ADDR_BITLEN)<<SPI_USR_ADDR_BITLEN_S | //Number of bits in Address\n			((dout_bits-1)&SPI_USR_MOSI_BITLEN)<<SPI_USR_MOSI_BITLEN_S |//Number of bits to Send\n			((din_bits-1)&SPI_USR_MISO_BITLEN)<<SPI_USR_MISO_BITLEN_S |//Number of bits to receive\n			((dummy_bits-1)&SPI_USR_DUMMY_CYCLELEN)<<SPI_USR_DUMMY_CYCLELEN_S);//Number of Dummy bits to insert\n//########## END SECTION ##########//\n\n//########## Setup Command Data ##########//\n	if (cmd_bits) {\n		SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_USR_COMMAND); //enable COMMAND function in SPI module\n		uint16 command = cmd_data << (16 - cmd_bits); //align command data to high bits\n		command = ((command >> 8) & 0xff) | ((command << 8) & 0xff00); //swap byte order\n		WRITE_PERI_REG(SPI_USER2(spi_no),\n				((((cmd_bits-1)&SPI_USR_COMMAND_BITLEN)<<SPI_USR_COMMAND_BITLEN_S) | command&SPI_USR_COMMAND_VALUE));\n	}\n//########## END SECTION ##########//\n\n//########## Setup Address Data ##########//\n	if (addr_bits) {\n		SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_USR_ADDR); //enable ADDRess function in SPI module\n		WRITE_PERI_REG(SPI_ADDR(spi_no), addr_data << (32 - addr_bits)); //align address data to high bits\n	}\n\n//########## END SECTION ##########//\n\n//########## Setup DOUT data ##########//\n	if (dout_bits) {\n		SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_USR_MOSI); //enable MOSI function in SPI module\n		//copy data to W0\n		if (READ_PERI_REG(SPI_USER(spi_no)) & SPI_WR_BYTE_ORDER) {\n			WRITE_PERI_REG(SPI_W0(spi_no), dout_data << (32 - dout_bits));\n		} else {\n\n			uint8 dout_extra_bits = dout_bits % 8;\n\n			if (dout_extra_bits) {\n				//if your data isn't a byte multiple (8/16/24/32 bits)and you don't have SPI_WR_BYTE_ORDER set, you need this to move the non-8bit remainder to the MSBs\n				//not sure if there's even a use case for this, but it's here if you need it...\n				//for example, 0xDA4 12 bits without SPI_WR_BYTE_ORDER would usually be output as if it were 0x0DA4,\n				//of which 0xA4, and then 0x0 would be shifted out (first 8 bits of low byte, then 4 MSB bits of high byte - ie reverse byte order).\n				//The code below shifts it out as 0xA4 followed by 0xD as you might require.\n				WRITE_PERI_REG(SPI_W0(spi_no),\n						((0xFFFFFFFF << (dout_bits - dout_extra_bits)\n								& dout_data) << (8 - dout_extra_bits)\n								| (0xFFFFFFFF\n										>> (32 - (dout_bits - dout_extra_bits)))\n										& dout_data));\n			} else {\n				WRITE_PERI_REG(SPI_W0(spi_no), dout_data);\n			}\n		}\n	}\n//########## END SECTION ##########//\n\n//########## Begin SPI Transaction ##########//\n	SET_PERI_REG_MASK(SPI_CMD(spi_no), SPI_USR);\n//########## END SECTION ##########//\n\n//########## Return DIN data ##########//\n	if (din_bits) {\n		while (spi_busy(spi_no))\n			;	//wait for SPI transaction to complete\n\n		if (READ_PERI_REG(SPI_USER(spi_no)) & SPI_RD_BYTE_ORDER) {\n			return READ_PERI_REG(SPI_W0(spi_no)) >> (32 - din_bits); //Assuming data in is written to MSB. TBC\n		} else {\n			return READ_PERI_REG(SPI_W0(spi_no)); //Read in the same way as DOUT is sent. Note existing contents of SPI_W0 remain unless overwritten!\n		}\n\n		return 0; //something went wrong\n	}\n//########## END SECTION ##########//\n\n	//Transaction completed\n	return 1; //success\n}\n\n/**\n * Set bit order.\n *\n * @param order MSB (1) first or LSB (0) first\n * @see spiOrder_t\n * @return None\n */\nvoid spi_set_bit_order(int order) {\n\n	if (!order) {\n		WRITE_PERI_REG(SPI_CTRL(HSPI),\n				READ_PERI_REG(SPI_CTRL(HSPI)) & (~(SPI_WR_BIT_ORDER | SPI_RD_BIT_ORDER)));\n	} else {\n		WRITE_PERI_REG(SPI_CTRL(HSPI),\n				READ_PERI_REG(SPI_CTRL(HSPI)) | (SPI_WR_BIT_ORDER | SPI_RD_BIT_ORDER));\n	}\n\n}\n\n////////////////////////////////////////////////////////////////////////////////\n\n/*///////////////////////////////////////////////////////////////////////////////\n //\n // Function Name: func\n //   Description:\n //    Parameters:\n //\n ///////////////////////////////////////////////////////////////////////////////*/\n/*\n * big endian esp8266\n * 0x12345678 becomes [0x78,0x56,0x34,0x12]\n * SPI fills in same order bytes[3],[2],[1],[0]\n *\n * bytes read are written to : N+3,2,1,0, N+4+3,N+4+2\n *\n *\n */\n//////////////////////////////////////////////////////////////////////////////////\n//\n//\n//\n/////////////////////////////////////////////////////////////////////////////////\nvoid bytesToWords(uint32_t* pW, uint8_t* pB, uint32_t length) {\n	typedef union {\n		uint32_t word;\n		uint8_t bytes[4];\n	} Map;\n	uint32_t byteIndex, wordIndex;\n	Map* pMap = (Map*) pW;\n	for (wordIndex = 0; wordIndex < (length / 4) + 1; wordIndex++) {\n		uint32_t fraction = length - wordIndex * 4;\n		if (fraction > 4)\n			fraction = 4;\n		pMap->word = 0;\n		for (byteIndex = 0; byteIndex < fraction; byteIndex++) {\n			pMap->bytes[4 - byteIndex] = pB[byteIndex];\n		}\n		pMap++;\n	}\n}\n//////////////////////////////////////////////////////////////////////////////////\n//\n//\n//\n/////////////////////////////////////////////////////////////////////////////////\nvoid wordsToBytes(uint32_t* pW, uint8_t* pB, uint32_t length) {\n	typedef union {\n		uint32_t word;\n		uint8_t bytes[4];\n	} Map;\n	uint32_t byteIndex, wordIndex;\n	Map* pMap = (Map*) pW;\n	for (wordIndex = 0; wordIndex < (length / 4) + 1; wordIndex++) {\n		uint32_t fraction = length - wordIndex * 4;\n		if (fraction > 4)\n			fraction = 4;\n\n		for (byteIndex = 0; byteIndex < fraction; byteIndex++) {\n			pB[byteIndex] = pMap->bytes[4 - byteIndex];\n		}\n		pMap++;\n	}\n}\n//////////////////////////////////////////////////////////////////////////////////\n//\n//\n//\n/////////////////////////////////////////////////////////////////////////////////\nconst char* HEX_CHAR = \"0123456789ABCDEF\";\nchar line[128];\n\nchar* bytesToHex(const uint8_t* pb, uint32_t len) {\n\n	uint32_t offset = 0;\n	while ((len > 0) && (offset < (sizeof(line) - 2))) {\n		line[offset++] = HEX_CHAR[((*pb) >> 4) & 0xF];\n		line[offset++] = HEX_CHAR[*pb & 0xF];\n		line[offset++] = ' ';\n		len--;\n		pb++;\n	}\n	line[offset++] = '\\0';\n	return line;\n}\n//////////////////////////////////////////////////////////////////////////////////\n//\n//\n//\n/////////////////////////////////////////////////////////////////////////////////\nint writetospi(uint16 hLen, const uint8 *hbuff, uint32 bLen,\n		const uint8 *buffer) {\n\n	INFO(\"head : %s\", bytesToHex(hbuff, hLen));\n	INFO(\"data : %s\", bytesToHex(buffer, bLen));\n	uint32_t i;\n	spi_set_hw_cs(false);\n	spi_cs_select();\n	for (i = 0; i < hLen; i++)\n		spi_transaction(HSPI, 8, hbuff[i], 0, 0, 0, 0, 0, 0);\n	for (i = 0; i < bLen; i++)\n		spi_transaction(HSPI, 8, buffer[i], 0, 0, 0, 0, 0, 0);\n	os_delay_us(100);\n	spi_cs_deselect();\n	return 0;\n}\n//////////////////////////////////////////////////////////////////////////////////\n//\n//\n//\n/////////////////////////////////////////////////////////////////////////////////\n\nint readfromspi(uint16 hLen, const uint8 *hbuff, uint32 bLen, uint8 *buffer) {\n	uint32_t i;\n	INFO(\"head : %s\", bytesToHex(hbuff, hLen));\n	spi_set_hw_cs(false);\n	spi_cs_select();\n	for (i = 0; i < hLen; i++)\n		spi_transaction(HSPI, 0, 0, 0, 0, 8, hbuff[i], 0, 0);\n	for (i = 0; i < bLen; i++)\n		buffer[i] = spi_transaction(HSPI, 0, 0, 0, 0, 0, 0, 8, 0);\n	os_delay_us(100);\n	spi_cs_deselect();\n	INFO(\"data : %s\", bytesToHex(buffer, bLen));\n	return 0;\n}\n//////////////////////////////////////////////////////////////////////////////////\n//\n//\n//\n/////////////////////////////////////////////////////////////////////////////////\nvoid spi_set_rate_low() {\n	spi_clock(HSPI, SPI_CLK_PREDIV, 20);\n}\n//////////////////////////////////////////////////////////////////////////////////\n//\n//\n//\n/////////////////////////////////////////////////////////////////////////////////\nvoid spi_set_rate_high() {\n	spi_clock(HSPI, SPI_CLK_PREDIV, SPI_CLK_CNTDIV);\n}\n\n/*//////////////////////////////////////////////////////////////////////////////*/\n/*	uint32_t din_bits = hLen * 8;\n uint32_t dout_bits = bLen * 8;\n\n while (spi_busy(HSPI))\n ; //wait for SPI to be ready\n\n //########## Enable SPI Functions ##########//\n //disable MOSI, MISO, ADDR, COMMAND, DUMMY in case previously set.\n CLEAR_PERI_REG_MASK(SPI_USER(HSPI),\n SPI_USR_MOSI|SPI_USR_MISO|SPI_USR_COMMAND|SPI_USR_ADDR|SPI_USR_DUMMY);\n SET_PERI_REG_MASK(SPI_USER(HSPI), SPI_DOUTDIN); // LMR set full duplex\n SET_PERI_REG_MASK(SPI_USER(HSPI), SPI_USR_MISO); //enable MISO function in SPI module\n SET_PERI_REG_MASK(SPI_USER(HSPI), SPI_USR_MOSI); //enable MOSI function in SPI module\n\n //########## Setup Bitlengths ##########//\n WRITE_PERI_REG(SPI_USER1(HSPI),\n ((dout_bits-1)&SPI_USR_MOSI_BITLEN)<<SPI_USR_MOSI_BITLEN_S | //Number of bits to Send\n ((din_bits-1)&SPI_USR_MISO_BITLEN)<<SPI_USR_MISO_BITLEN_S);//Number of bits to receive\n\n //########## Setup DOUT data ##########//\n if (dout_bits) {\n //copy data to W0\n uint32_t offset = bytesToWord(SPI_W0(HSPI), hbuff, hLen);\n bytesToWord(SPI_W0(HSPI), buffer,bLen);\n }\n\n SET_PERI_REG_MASK(SPI_CMD(HSPI), SPI_USR); //########## Begin SPI Transaction ##########//\n\n //########## Return DIN data ##########//\n wordsToBytes(SPI_W0(HSPI),);\n if (din_bits) {\n while (spi_busy(HSPI))\n ;	//wait for SPI transaction to complete\n\n if (READ_PERI_REG(SPI_USER(HSPI)) & SPI_RD_BYTE_ORDER) {\n return READ_PERI_REG(SPI_W0(HSPI)) >> (32 - din_bits); //Assuming data in is written to MSB. TBC\n } else {\n return READ_PERI_REG(SPI_W0(HSPI)); //Read in the same way as DOUT is sent. Note existing contents of SPI_W0 remain unless overwritten!\n }\n }*/\n",
+			"file": "user/spi.c",
+			"file_size": 20487,
+			"file_write_time": 131065625281146850,
+			"settings":
+			{
+				"buffer_size": 20487,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tools/USB0.LOG",
+			"settings":
+			{
+				"buffer_size": 5889,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/C++/C++ Single File.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 372.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Add Repository"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 114.0,
+		"history":
+		[
+			" import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
+			" import urllib2,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation') "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/lieven/workspace/esp_make/ld/eagle.app.v6.common.ld",
+		"/home/lieven/workspace/esp_make/ld/link.ld",
+		"/home/lieven/workspace/esp_make/tools/USB0.log",
+		"/home/lieven/workspace/esp_make/tools/.log",
+		"/home/lieven/workspace/esp_tcp/tools/out.sh",
+		"/home/lieven/workspace/esp_make/deca/deca_spi.c",
+		"/home/lieven/workspace/esp_make/mqtt/MqttMsg.cpp",
+		"/home/lieven/workspace/esp_make/cpp/stubs.cpp",
+		"/home/lieven/workspace/esp_make/include/mqtt.h",
+		"/home/lieven/workspace/esp_make/include/queue.h",
+		"/home/lieven/workspace/esp_make/user/spi.c",
+		"/home/lieven/workspace/esp_make/user/config.c",
+		"/home/lieven/workspace/esp_make/include/util.h",
+		"/home/lieven/workspace/esp_make/include/all.h",
+		"/home/lieven/esp-open-sdk/esp_iot_sdk_v1.4.0/include/c_types.h",
+		"/home/lieven/workspace/esp_make/user/watchdog.c",
+		"/home/lieven/workspace/esp_tcp/cpp/LedBlink.cpp",
+		"/home/lieven/workspace/esp_make/stub.c",
+		"/home/lieven/workspace/Common/inc/Sys.h",
+		"/home/lieven/workspace/esp_make/Makefile",
+		"/home/lieven/workspace/esp_tcp/Makefile",
+		"/home/lieven/arduino/esp8266/cores/esp8266/core_esp8266_wiring_digital.c",
+		"/home/lieven/esp-open-sdk/crosstool-NG/Makefile",
+		"/home/lieven/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/lieven/workspace/esp_cbor/cpp/Stm32.cpp",
+		"/home/lieven/workspace/esp_cbor/cpp/LedBlink.cpp",
+		"/home/lieven/workspace/esp_cbor/cpp/Mqtt.h",
+		"/home/lieven/workspace/esp_cbor/cpp/Mqtt.cpp",
+		"/home/lieven/workspace/esp_cbor/cpp/MqttMsg.cpp",
+		"/home/lieven/workspace/esp_cbor/tools/minicom.log"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"IROM",
+			"log"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5339,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4400,
+								4400
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1794.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "user/spi.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20487,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6099.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "tools/USB0.LOG",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5889,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								298,
+								298
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 455.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.astyle_error_message":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 214.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "esp_make.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

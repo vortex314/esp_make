@@ -63,8 +63,6 @@ uart_config(uint32_t uart_no, uint32_t baudrate, char* mode) {
 	UartDev.buff_uart_no = uart_no;
 	UartDev.baut_rate = baudrate;
 
-	uint32_t flags;
-
 	UartDev.data_bits = EIGHT_BITS;
 
 	if (mode[0] == '8') {

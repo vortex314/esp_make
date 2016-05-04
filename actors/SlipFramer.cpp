@@ -35,13 +35,13 @@ bool SlipFramer::dispatch(Msg& msg) {
 	INFO("");
 	init();
 	while (true) {
-		PT_YIELD_UNTIL(msg.is(_tcp, SIG_RXD) );
+		PT_YIELD_UNTIL(msg.is(_tcp, SIG_RXD));
 		if (msg.is(_tcp, SIG_RXD)) {
 			Bytes bytes(0);
 			msg.rewind().getMapped(bytes);
 			while (bytes.hasData()) {
 				if (_slip->fill(bytes.read())) {
-					Msg::queue().putf("uuB", this, SIG_RXD,(Bytes*) _slip);
+					Msg::queue().putf("uuB", this, SIG_RXD, (Bytes*) _slip);
 					_slip->reset();
 				}
 			}

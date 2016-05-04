@@ -171,7 +171,7 @@ bool DWM1000_Anchor::isInterruptDetected() {
 	return interrupt_detected;
 }
 
-bool DWM1000_Anchor::clearInterrupt() {
+void DWM1000_Anchor::clearInterrupt() {
 	interrupt_detected = false;
 }
 
@@ -415,6 +415,7 @@ bool DWM1000_Anchor::dispatch(Msg& msg) {
 		} else {
 			/* Clear RX error events in the DW1000 status register. */
 			dwt_write32bitreg(SYS_STATUS_ID, SYS_STATUS_ALL_RX_ERR);
+			goto WAIT_POLL;
 		}
 
 	}

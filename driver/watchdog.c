@@ -10,6 +10,7 @@
 #include "os_type.h"
 #include "osapi.h"
 #include "espmissingincludes.h"
+#include <Logger.h>
 
 #define US_TO_RTC_TIMER_TICKS(t)          \
     ((t) ?                                   \
@@ -154,7 +155,8 @@ void  initWatchDog(void) {
 }
 #include <xtensa/corebits.h>
 
-void dumper(){
+void IRAM dumper(){
+	LOGNOW("D");
 	uint32_t lv = 0;
 	dump_stack(&lv);
 	while(1);

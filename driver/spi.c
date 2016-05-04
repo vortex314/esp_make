@@ -1,5 +1,4 @@
 /*
- /*
  * The MIT License (MIT)
  *
  * Copyright (c) 2015 David Ogilvy (MetalPhreak)
@@ -26,6 +25,7 @@
 #include "spi.h"
 #include "Sys.h"
 #include "Logger.h"
+#include "espmissingincludes.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 //

@@ -19,7 +19,7 @@ void ICACHE_FLASH_ATTR CreateMutex(mutex_t *mutex) {
 // as the esp8266 doesn't support the atomic S32C1I instruction
 // we have to make the code uninterruptable to produce the
 // same overall effect
-bool ICACHE_FLASH_ATTR GetMutex(mutex_t *mutex) {
+/*bool ICACHE_FLASH_ATTR GetMutex(mutex_t *mutex) {
 
 	int iOld = 1, iNew = 0;
 
@@ -38,7 +38,7 @@ bool ICACHE_FLASH_ATTR GetMutex(mutex_t *mutex) {
 	if (!iOld)
 		conflicts += 10000;
 	return (bool) iOld;
-}
+}*/
 
 // release a mutex
 void ICACHE_FLASH_ATTR ReleaseMutex(mutex_t *mutex) {

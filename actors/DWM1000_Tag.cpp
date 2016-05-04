@@ -151,7 +151,7 @@ bool DWM1000_Tag::isInterruptDetected() {
 	return interrupt_detected;
 }
 
-bool DWM1000_Tag::clearInterrupt() {
+void DWM1000_Tag::clearInterrupt() {
 	interrupt_detected = false;
 }
 
@@ -412,7 +412,7 @@ static uint64 get_rx_timestamp_u64(void) {
  *
  * @return none
  */
-static void final_msg_get_ts(const uint8 *ts_field, uint32 *ts) {
+void final_msg_get_ts(const uint8 *ts_field, uint32 *ts) {
 	int i;
 	*ts = 0;
 	for (i = 0; i < FINAL_MSG_TS_LEN; i++) {

@@ -71,7 +71,7 @@ void task_post(const char* src, Signal signal) {
 
 void  task_handler(os_event_t *e) {	// foreground task to handle signals async
 	while (msg->receive()) {							// process all messages
-		LOG << HEX << " src : " << (uint32_t)msg->src() << " signal " << msg->signal() << FLUSH;
+//		LOG << HEX << " src : " << (uint32_t)msg->src() << " signal " << msg->signal() << FLUSH;
 		Handler::dispatchToChilds(*msg);				// send message to all
 
 	}
@@ -277,8 +277,8 @@ extern "C"  void MsgInit() {
 	wifi = new Wifi();
 	wifi->config(SSID.c_str(), PASS.c_str());
 
-	tcpServer = new TcpServer(wifi);
-	tcpServer->config(0, 2323);
+//	tcpServer = new TcpServer(wifi);
+//	tcpServer->config(0, 2323);
 
 //	tcp = new Tcp(wifi);
 //	INFO("tcp %X ", tcp);

@@ -5,7 +5,6 @@ extern "C" {
 #endif
 #include "ets_sys.h"
 
-extern void os_printf_plus(const char* s, ...);
 extern void logShort(const char * format, ...);
 
 //#define debug(fmt,...) SysLog(__FILE__,__FUNCTION__,fmt,##__VA_ARGS__)

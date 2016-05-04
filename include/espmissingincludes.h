@@ -37,6 +37,7 @@ void ets_timer_disarm(ETSTimer *a);
 void ets_timer_setfn(ETSTimer *t, ETSTimerFunc *fn, void *parg);
 int os_printf(const char *format, ...)  __attribute__ ((format (printf, 1, 2)));
 int os_snprintf(char *str, size_t size, const char *format, ...) __attribute__ ((format (printf, 3, 4)));
+int os_printf_plus(const char *format, ...)  __attribute__ ((format (printf, 1, 2)));
 void pvPortFree(void *ptr);
 void *pvPortMalloc(size_t xWantedSize);
 void *pvPortZalloc(size_t);

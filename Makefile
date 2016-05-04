@@ -17,7 +17,7 @@ FW_BASE		= firmware
 XTENSA_TOOLS_ROOT ?= $(ROOT)/xtensa-lx106-elf/bin
 
 # base directory of the ESP8266 SDK package, absolute
-SDK_BASE	?= $(ROOT)/esp_iot_sdk_v1.4.0
+SDK_BASE	?= $(ROOT)/esp_iot_sdk_v1.3.0
 
 #Esptool.py path and port
 ESPTOOL		?= tools/esptool.py
@@ -29,15 +29,17 @@ LOG			?= tools/$(TTY).LOG
 TARGET		= app
 
 # which modules (subdirectories) of the project to include in compiling
-MODULES		= driver user cpp mqtt deca wifi actors
+MODULES		= driver user cpp mqtt deca wifi actors 
 EXTRA_INCDIR    = include $(ROOT)/include/ cpp ../Common/inc
+# $(SDK_BASE)/include $(HOME)/esp-open-sdk/lx106-hal/include/  
 
 # libraries used in this project, mainly provided by the SDK
 LIBS		= Common c gcc hal phy net80211 lwip wpa upgrade ssl main pp 
 
 # compiler flags using during compilation of source files
-DEFINES		= -D__ESP8266__ -DSTA_SSID=\"Merckx\" -DSTA_PASS=\"LievenMarletteEwoutRonald\"
-CFLAGS		= -Os -g -O3 -Wpointer-arith -Wundef -Werror -Wl,-EL -fno-inline-functions -nostdlib -mlongcalls -mtext-section-literals  -D__ets__ -DICACHE_FLASH
+DEFINES		= -D__ets__ -D__ESP8266__ -DSTA_SSID=\"Merckx\" -DSTA_PASS=\"LievenMarletteEwoutRonald\" -DICACHE_FLASH -DESP_COREDUMP
+#CFLAGS		= -g3 -O0  -Werror -Wl,-EL -fno-inline-functions -nostdlib -mlongcalls -mtext-section-literals  -D__ets__ -DICACHE_FLASH
+CFLAGS		= -O0 -Os -g3 -Wall -c -fmessage-length=0  -ffunction-sections -fdata-sections  -mlongcalls -mtext-section-literals -fno-jump-tables 
 CXXFLAGS	= $(CFLAGS) -fno-rtti -fno-exceptions
 
 # linker flags used to generate the main object file
@@ -83,7 +85,7 @@ CXX_OBJ		:= $(patsubst %.cpp,%.o,$(C_OBJ))
 OBJ		:= $(patsubst %.o,$(BUILD_BASE)/%.o,$(CXX_OBJ))
 LIBS		:= $(addprefix -l,$(LIBS))
 APP_AR		:= $(addprefix $(BUILD_BASE)/,$(TARGET)_app.a)
-TARGET_OUT	:= $(addprefix $(BUILD_BASE)/,$(TARGET).out)
+TARGET_OUT	:= $(addprefix $(BUILD_BASE)/,$(TARGET).elf)
 
 
 
@@ -91,8 +93,6 @@ INCDIR	:= $(addprefix -I,$(SRC_DIR))
 EXTRA_INCDIR	:= $(addprefix -I,$(EXTRA_INCDIR))
 MODULE_INCDIR	:= $(addsuffix /include,$(INCDIR))
 
-FW_FILE_1	:= $(addprefix $(FW_BASE)/,$(FW_FILE_1).bin)
-FW_FILE_2	:= $(addprefix $(FW_BASE)/,$(FW_FILE_2).bin)
 
 V ?= $(VERBOSE)
 ifeq ("$(V)","1")
@@ -119,14 +119,6 @@ endef
 
 all: checkdirs $(TARGET_OUT) $(FLASH)
 
-$(FW_FILE_1): $(TARGET_OUT)
-	$(vecho) "FW $@"
-	$(Q) $(FW_TOOL) -eo $(TARGET_OUT) $(FW_FILE_1_ARGS)
-
-$(FW_FILE_2): $(TARGET_OUT)
-	$(vecho) "FW $@"
-	$(Q) $(FW_TOOL) -eo $(TARGET_OUT) $(FW_FILE_2_ARGS)
-
 $(TARGET_OUT): $(OBJ)
 	$(vecho) "LD $@"
 	$(Q) $(LD) -L$(SDK_LIBDIR) $(LD_SCRIPT) $(LDFLAGS) -Wl,--start-group $(LIBS) $(OBJ) -Wl,--end-group -o $@
@@ -143,17 +135,13 @@ $(BUILD_DIR):
 firmware:
 	$(Q) mkdir -p $@
 
-flash: $(FW_FILE_1) $(FW_FILE_2)
-	-$(ESPTOOL) --port $(ESPPORT) write_flash 0x00000 firmware/0x00000.bin
-	sleep 3
-	-$(ESPTOOL) --port $(ESPPORT) write_flash 0x40000 firmware/0x40000.bin
 
-FLASH: $(TARGET_OUT)
+flash: $(TARGET_OUT)
 	tools/reset $(ESPPORT)
 	tools/esptool.py --port $(ESPPORT)  read_mac
 	tools/esptool.py --port $(ESPPORT)  read_flash  0x3F8000 0x100 dump.bin 
 	od --endian=little -X -c dump.bin > $(LOG)
-# ../tools/esptool.py --port $TTY  erase_flash
+	tools/esptool.py --port $(ESPPORT)  erase_flash
 	tools/esptool.py elf2image $(TARGET_OUT)
 	tools/esptool2 -debug -bin -boot2 -1024 -dio -40  $(TARGET_OUT) $(TARGET_OUT).bin .text .data .rodata # was 4096
 	tools/esptool.py --p $(ESPPORT) -b 576000 write_flash  -ff 40m -fm dio -fs 32m \
@@ -164,13 +152,16 @@ FLASH: $(TARGET_OUT)
 	tools/reset $(ESPPORT)
 	minicom  -D $(ESPPORT) -C $(LOG)
 
+nm: $(TARGET_OUT)
+	objdump -tT $(TARGET_OUT) |  grep " .text"
+	nm -f sysv --demangle $(TARGET_OUT) | grep "|.text"
+
+
 clean:
 	$(Q) rm -f $(APP_AR)
 	$(Q) rm -f $(TARGET_OUT)
 	$(Q) rm -rf $(BUILD_DIR)
-	$(Q) rm -rf $(BUILD_BASE)
-	$(Q) rm -f $(FW_FILE_1)
-	$(Q) rm -f $(FW_FILE_2)
+#	$(Q) rm -rf $(BUILD_BASE)
 	$(Q) rm -rf $(FW_BASE)
 
 $(foreach bdir,$(BUILD_DIR),$(eval $(call compile-objects,$(bdir))))

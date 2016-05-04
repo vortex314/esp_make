@@ -71,11 +71,12 @@ bool Wifi::dispatch(Msg& msg) {
 		INFO("phy mode %d", wifi_get_phy_mode());
 //		wifi_set_opmode(STATION_MODE);
 		wifi_set_opmode_current(STATION_MODE);
-		INFO("1");
+		LOGNOW('A');
 		ets_delay_us(3000);
-		; // STATIONAP_MODE was STATION_MODE
-		INFO("2");
+	 // STATIONAP_MODE was STATION_MODE
+		LOGNOW('B');
 		if (wifi_set_phy_mode(PHY_MODE_11B)) { // true or false
+			LOGNOW('C');
 			os_memset(&stationConf, 0, sizeof(struct station_config));
 			ets_strncpy((char*) stationConf.ssid, _ssid,
 					sizeof(stationConf.ssid));
@@ -86,9 +87,10 @@ bool Wifi::dispatch(Msg& msg) {
 
 			wifi_station_set_config(&stationConf);
 			if (wifi_station_set_config_current(&stationConf)) {
-				INFO("3");
+				LOGNOW('D');
 				if (wifi_station_connect()) {
-					INFO("4");
+					LOGNOW('E');
+					;
 					goto DISCONNECTED;
 					//	wifi_station_set_auto_connect(TRUE);
 				}

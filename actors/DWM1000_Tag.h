@@ -23,7 +23,7 @@ public:
 	static bool interrupt_detected;
 	static void my_dwt_isr();
 	bool isInterruptDetected();
-	bool clearInterrupt();
+	void clearInterrupt();
 	void enableIsr();
 	bool dispatch(Msg& msg);
 };

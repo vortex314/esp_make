@@ -151,7 +151,7 @@ SECTIONS
   {
     _irom0_text_start = ABSOLUTE(.);
     *user/*.o(.literal*, .text*)
-    *driver/*.o(.literal*, .text*)
+    *driver/*.o(.literal*, .text*) 
     *actors/*.o(.literal*, .text*)
     *cpp/*.o(.literal*, .text*)
     *wifi/*.o(.literal*, .text*)
@@ -171,7 +171,8 @@ SECTIONS
   {
     _stext = .;
     _text_start = ABSOLUTE(.);
-     *(.UserEnter.text)
+    *(.UserEnter.text)
+    *(.iram.text)
     . = ALIGN(16);
     *(.DebugExceptionVector.text)
     . = ALIGN(16);

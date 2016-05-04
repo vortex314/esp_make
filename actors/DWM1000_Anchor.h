@@ -25,7 +25,7 @@ public:
 	static bool interrupt_detected ;
 	static void my_dwt_isr();
 	bool isInterruptDetected();
-	bool clearInterrupt();
+	void clearInterrupt();
 };
 
 #endif /* DWM1000_Anchor_Tag_H_ */

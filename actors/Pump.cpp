@@ -197,7 +197,7 @@ extern "C"  void MsgInit() {
 //	deca_example();
 
 //	initPins();
-	gpioReset = new Gpio(2); // D2, GPIO4 see http://esp8266.co.uk/tutorials/introduction-to-the-gpio-api/
+/*	gpioReset = new Gpio(2); // D2, GPIO4 see http://esp8266.co.uk/tutorials/introduction-to-the-gpio-api/
 	gpioReset->setMode("OOD");
 	Json json(100);
 	Str str(30);
@@ -246,12 +246,12 @@ extern "C"  void MsgInit() {
 	}
 
 	getConfig(str, "mqtt/port", "test.eclipse.org");
-	INFO(" config %s : %d ", str.data(), str.length());
+	INFO(" config %s : %d ", str.data(), str.length());*/
 
 //	if ( wildcardMatch("put/aa/bb/stm32/cmd","put/*/*/stm32/cmd",true,'\0')) INFO("matched");
 
 //	new Router("put/*/*/stm32/cmd", &stm32);
-	Cbor cbor(10);
+//	Cbor cbor(10);
 //	Router::publish("put/aa/bb/stm32/cmd",cbor);
 
 	/*	for (int i=1;i<10;i++) {

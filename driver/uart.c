@@ -24,13 +24,14 @@
 #include "uart_register.h"
 #include "mem.h"
 #include "os_type.h"
+#include <espmissingincludes.h>
 
 extern UartDevice UartDev;
 
 #include "Sys.h"
 #include <Logger.h>
 
-extern void uart0RecvByte(uint8_t b);
+//extern void uart0RecvByte(uint8_t b);
 extern void uart0Write(uint8_t b);
 
 IRAM void uart0WriteWait(uint8 TxChar) {
@@ -45,7 +46,7 @@ IRAM void uart0WriteWait(uint8 TxChar) {
 	WRITE_PERI_REG(UART_FIFO(0), TxChar);
 }
 
-LOCAL void IRAM uart0_rx_intr_handler(void *para);
+void  uart0_rx_intr_handler(void *para);
 
 /******************************************************************************
  * FunctionName : uart_config
@@ -55,8 +56,7 @@ LOCAL void IRAM uart0_rx_intr_handler(void *para);
  * Parameters   : uart_no, use UART0 or UART1 defined ahead
  * Returns      : NONE
  *******************************************************************************/
-void IROM
-uart_config(uint32_t uart_no, uint32_t baudrate, char* mode) {
+void uart_config(uint32_t uart_no, uint32_t baudrate, char* mode) {
 	INFO("uart_no %d baudrate %d mode %s", uart_no, baudrate, mode);
 //	uart_rx_intr_disable(uart_no);
 //	ETS_UART_INTR_DISABLE();
@@ -137,8 +137,7 @@ uart_config(uint32_t uart_no, uint32_t baudrate, char* mode) {
 //	ETS_UART_INTR_ENABLE();
 }
 
-void IROM
-uart1_config() {
+void uart1_config() {
 	uint8 uart_no = UART1;
 	PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO2_U, FUNC_U1TXD_BK);
 	uart_div_modify(uart_no, UART_CLK_FREQ / (UartDev.baut_rate)); //SET BAUDRATE
@@ -202,7 +201,7 @@ uint32_t uartErrorCount = 0;
  * Returns      : NONE
  *******************************************************************************/
 
-LOCAL void IRAM uart0_rx_intr_handler(void *para) {
+void IRAM uart0_rx_intr_handler(void *para) {
 	uint32_t loop = 0;
 //	ETS_UART_INTR_DISABLE();
 
@@ -271,8 +270,7 @@ LOCAL void IRAM uart0_rx_intr_handler(void *para) {
 
 }
 
-void IROM
-uart_init(UartBautRate uart0_br, UartBautRate uart1_br) {
+void uart_init(UartBautRate uart0_br, UartBautRate uart1_br) {
 
 	UartDev.baut_rate = uart0_br;
 	uart_config(0, uart0_br, "8N1");

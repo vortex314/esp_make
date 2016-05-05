@@ -101,7 +101,7 @@ void Tcp::listTcp() {
 	line[0] = 0;
 	for (cursor = _first; cursor != 0; cursor = cursor->_next) {
 		os_sprintf(line + strlen(line), "/ %X:%X %d %d", (uint32_t) cursor,
-				cursor->_conn, cursor->getType(), cursor->isConnected());
+				(uint32_t)cursor->_conn, cursor->getType(), cursor->isConnected());
 	}
 	INFO(line);
 }
@@ -331,7 +331,7 @@ void Tcp::recvCb(void* arg, char *pdata, unsigned short len) {
 		bytes.map((uint8_t*) pdata, (uint32_t) len);
 
 		Erc erc;
-		if (erc = Msg::queue().putf("uuB", pTcp, SIG_RXD, &bytes)) {
+		if ((erc = Msg::queue().putf("uuB", pTcp, SIG_RXD, &bytes))) {
 			pTcp->_overflowRxd++;
 		}
 //		INFO("erc %d bytes.length %d pTcp %X ", erc, bytes.length(), pTcp);

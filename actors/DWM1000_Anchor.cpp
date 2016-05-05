@@ -212,11 +212,11 @@ void DWM1000_Anchor::initSpi() {
 			0);
 }
 
-void txcallback(const dwt_callback_data_t * data){
+void txcallback(const dwt_callback_data_t * data) {
 	interruptCount++;
 }
 
-void rxcallback(const dwt_callback_data_t * data){
+void rxcallback(const dwt_callback_data_t * data) {
 	interruptCount++;
 }
 
@@ -239,13 +239,13 @@ void DWM1000_Anchor::init() {
 //	dwt_softreset();
 	deca_sleep(100);
 
-	while (dwt_initialise(DWT_LOADUCODE)) {
+	if (dwt_initialise(DWT_LOADUCODE)) {
 		LOG<< " dwt_initialise failed " << FLUSH;
-	}
+	} else
 	LOG<< " dwt_initialise done." << FLUSH;
-	while (dwt_configure(&config)) {
+	if (dwt_configure(&config)) {
 		LOG<< " dwt_configure failed " << FLUSH;
-	}
+	} else
 	LOG<< " dwt_configure done." << FLUSH;
 
 	uint32_t device_id = dwt_readdevid();
@@ -265,7 +265,7 @@ void DWM1000_Anchor::init() {
 
 	dwt_initialise(DWT_LOADUCODE);
 	// Configure the callbacks from the dwt library
-		dwt_setcallbacks(txcallback, rxcallback);
+	dwt_setcallbacks(txcallback, rxcallback);
 
 	_count = 0;
 }

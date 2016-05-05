@@ -172,7 +172,6 @@ SECTIONS
     _stext = .;
     _text_start = ABSOLUTE(.);
     *(.UserEnter.text)
-    *(.iram.text)
     . = ALIGN(16);
     *(.DebugExceptionVector.text)
     . = ALIGN(16);
@@ -202,6 +201,7 @@ SECTIONS
     *(.literal .text .literal.* .text.* .stub .gnu.warning .gnu.linkonce.literal.* .gnu.linkonce.t.*.literal .gnu.linkonce.t.*)
     *.cpp.o(.iram.text)
     *.c.o(.iram.text)
+    *(.iram.text)
     *(.fini.literal)
     *(.fini)
     *(.gnu.version)
